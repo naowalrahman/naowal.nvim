@@ -5,13 +5,13 @@ return {
 		relativenumber = true, -- sets vim.opt.relativenumber
 		number = true,
 		spell = false,
-		signcolumn = "auto",
+		signcolumn = "yes",
 		wrap = true,
 		tabstop = 4,
 		expandtab = true,
 		softtabstop = 4,
 		shiftwidth = 4,
-		guifont = "FiraCode Nerd Font:h8"
+		guifont = "FiraCode Nerd Font:h8",
 	},
 	g = {
 		mapleader = " ", -- sets vim.g.mapleader
