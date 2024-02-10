@@ -5,7 +5,7 @@ return {
 	config = function()
 		require("peek").setup({
 			auto_load = false,
-			app = "brave",
+			app = "firefox",
 		})
 		vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
 		vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
