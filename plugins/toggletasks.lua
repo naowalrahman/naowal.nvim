@@ -1,5 +1,6 @@
 return {
 	"jedrzejboczar/toggletasks.nvim",
+	event = { "VeryLazy" },
 	config = function()
         require('telescope').load_extension('toggletasks')
 
