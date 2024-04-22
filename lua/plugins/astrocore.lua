@@ -36,7 +36,7 @@ return {
                 expandtab = true,
                 softtabstop = 4,
                 shiftwidth = 4,
-                guifont = "FiraCode Nerd Font:h8",
+                guifont = "FiraCode Nerd Font:h10",
             },
             g = { -- vim.g.<key>
                 -- configure global vim variables (vim.g)

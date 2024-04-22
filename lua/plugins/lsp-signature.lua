@@ -5,6 +5,7 @@ return {
     opts = {
         bind = true,
         handler_opts = { border = "rounded" },
+        cursorhold_update = false,
     },
     config = function(_, opts) require("lsp_signature").setup(opts) end,
 }

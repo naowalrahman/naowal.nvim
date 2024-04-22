@@ -1,0 +1,31 @@
+return {
+    -- url = "https://gitlab.com/schrieveslaach/sonarlint.nvim",
+    -- -- lazy = true,
+    -- dependencies = {
+    --     "nvim-lspconfig",
+    --     "mason-lspconfig",
+    -- },
+    -- config = function()
+    --     local analyzers_path = "/home/naowal/.local/share/nvim/mason/packages/sonarlint-language-server/extension/analyzers/"
+    --     require("sonarlint").setup {
+    --         server = {
+    --             cmd = {
+    --                 "sonarlint-language-server",
+    --                 -- Ensure that sonarlint-language-server uses stdio channel
+    --                 "-stdio",
+    --                 "-analyzers",
+    --                 -- paths to the analyzers you need, using those for python and java in this example
+    --                 analyzers_path .. "sonarpython.jar",
+    --                 analyzers_path .. "sonarcfamily.jar",
+    --                 -- vim.fn.expand "$MASON/share/sonarlint-analyzers/sonarjava.jar",
+    --             },
+    --         },
+    --         filetypes = {
+    --             -- Tested and working
+    --             "python",
+    --             "cpp",
+    --             -- "java",
+    --         },
+    --     }
+    -- end,
+}
