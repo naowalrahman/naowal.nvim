@@ -11,6 +11,9 @@
             "#include <bits/stdc++.h>",
             "using namespace std;",
             "",
+            "#pragma GCC optimize(\"Ofast,unroll-loops\")",
+            "#pragma GCC target(\"avx2,bmi,bmi2,lzcnt,popcnt,tune=native\")",
+            "",
             "#ifndef ONLINE_JUDGE",
             "#include \"/home/naowal/Desktop/code/competitive-programming/debug.h\"",
             "#else",
@@ -21,6 +24,8 @@
             "template<class T> using V = vector<T>;",
             "using vi = V<int>;",
             "using pii = pair<int, int>;",
+            "#define first f",
+            "#define second s",
             "#define sz(x) (int)((x).size())",
             "#define all(x) begin(x), end(x)",
             "#define rall(x) rbegin(x), rend(x)",
@@ -30,18 +35,30 @@
             "#define ROF(i,a,b) for (int i = (b)-1; i >= (a); --i)",
             "#define R0F(i,a) ROF(i,0,a)",
             "",
-            "template<class T> bool ckmin(T& a, const T& b) {",
-            "    return b < a ? a = b, 1 : 0; } // set a = min(a,b)",
-            "template<class T>  bool ckmax(T& a, const T& b) {",
-            "    return a < b ? a = b, 1 : 0; } // set a = max(a,b)",
+            "const auto _start_time = chrono::high_resolution_clock::now();",
+            "void timer() {",
+            "    auto _end_time = chrono::high_resolution_clock::now();",
+            "    chrono::duration<double, milli> diff = _end_time - _start_time;",
+            "    cerr << \"Time Taken: \" << diff.count() << \" ms\\n\";",
+            "}",
             "",
             "signed main() {",
             "    cin.tie(0)->sync_with_stdio(0);",
             "",
             "    $0",
             "",
+            "    timer();",
             "    return 0;",
-            "}"
+            "}",
+            "",
+            "/* stuff you should look for",
+            "   -------------------------",
+            " * int overflow, array bounds",
+            " * special cases (n=1?)",
+            " * do smth instead of nothing and stay organized",
+            " * WRITE STUFF DOWN",
+            " * DON'T GET STUCK ON ONE APPROACH",
+            "*/"
         ],
         "description": "Longer CP template. Includes macros, type definitions, and `int` as `long long`."
     },
@@ -65,5 +82,16 @@
             "}"
         ],
         "description": "Shorter, simpler CP template. Just has fast IO and STL import."
+    },
+    "Include CP Debugging Template": {
+        "prefix": "debugtemplate",
+        "body": [
+            "#ifndef ONLINE_JUDGE",
+            "#include \"/home/naowal/Desktop/code/competitive-programming/debug.h\"",
+            "#else",
+            "#define dbg(x)",
+            "#endif"
+        ],
+        "description": "Include CP debugging template with an include guard for online judges (CF, Atcoder, etc.)"
     }
 }
