@@ -1,6 +1,6 @@
 return {
     "akinsho/toggleterm.nvim",
     opts = {
-        shell = vim.fn.has("win32") and "pwsh" or "zsh"
+        shell = vim.loop.os_uname().sysname == "Linux" and "zsh" or "pwsh"
     }
 }
