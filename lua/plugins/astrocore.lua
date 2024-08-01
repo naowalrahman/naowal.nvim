@@ -37,6 +37,7 @@ return {
                 softtabstop = 4,
                 shiftwidth = 4,
                 guifont = "FiraCode Nerd Font:h10",
+                clipboard = "unnamedplus"
             },
             g = { -- vim.g.<key>
                 -- configure global vim variables (vim.g)
