@@ -1,5 +1,3 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -10,7 +8,6 @@ return {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
     opts = {
-        -- Configure core features of AstroNvim
         features = {
             large_buf = { size = 1024 * 500, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
             autopairs = true, -- enable autopairs at start
@@ -19,12 +16,12 @@ return {
             highlighturl = true, -- highlight URLs at start
             notifications = true, -- enable notifications at start
         },
-        -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
+
         diagnostics = {
             virtual_text = true,
             underline = true,
         },
-        -- vim options can be configured here
+
         options = {
             opt = { -- vim.opt.<key>
                 relativenumber = true, -- sets vim.opt.relativenumber
@@ -32,23 +29,27 @@ return {
                 spell = false, -- sets vim.opt.spell
                 signcolumn = "yes", -- sets vim.opt.signcolumn to auto
                 wrap = true, -- sets vim.opt.wrap
+                foldmethod = "expr",
+                foldexpr = "v:lua.vim.treesitter.foldexpr()",
                 tabstop = 4,
                 expandtab = true,
                 softtabstop = 4,
                 shiftwidth = 4,
                 guifont = "FiraCode Nerd Font:h10",
-                clipboard = "unnamedplus"
+                clipboard = "unnamedplus",
             },
             g = { -- vim.g.<key>
                 -- configure global vim variables (vim.g)
                 -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
                 -- This can be found in the `lua/lazy_setup.lua` file
+
                 neovide_padding_top = 5,
                 neovide_padding_bottom = 5,
                 neovide_padding_right = 5,
                 neovide_padding_left = 5,
             },
         },
+
         -- Mappings can be configured through AstroCore as well.
         -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
         mappings = {
@@ -78,8 +79,6 @@ return {
                     desc = "Run current file",
                 },
                 ["<Leader>r"] = { name = " Run" },
-                -- quick save
-                -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
             },
             t = {
                 -- setting a mapping to false will disable it
