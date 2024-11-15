@@ -1,4 +1,4 @@
-# LazyVim Config
+# naowal.nvim
 
 My LazyVim user configuration.
 
