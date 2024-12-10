@@ -26,5 +26,7 @@ vim.filetype.add {
     -- pattern = {
     --   ["~/%.config/foo/.*"] = "fooscript",
     -- },
-    pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+    pattern = {
+        [".*/hypr/.*%.conf"] = "hyprlang",
+    },
 }

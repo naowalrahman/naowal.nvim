@@ -60,7 +60,3 @@ end
 
 vim.api.nvim_create_user_command("CompileFile", function() process_file(true) end, {})
 vim.api.nvim_create_user_command("RunFile", function() process_file(false) end, {})
-
--- Map keys
-vim.keymap.set("n", "<F5>", ":RunFile<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<F6>", ":CompileFile<CR>", { noremap = true, silent = true })

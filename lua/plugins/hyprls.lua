@@ -1,6 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
     opts = function(_, opts)
         opts.servers.hyprls = {
             cmd = { "hyprls", "--stdio" },
