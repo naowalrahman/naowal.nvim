@@ -11,7 +11,6 @@ return {
             "html",
             "jdtls",
             "jsonls",
-            "lua_ls",
             "marksman",
             "pyright",
         },
