@@ -9,5 +9,8 @@ return {
         }
 
         opts.signature = { enabled = true }
+        opts.sources.per_filetype = {
+            codecompanion = { "codecompanion" },
+        }
     end,
 }
