@@ -8,7 +8,6 @@ return {
             "cssls",
             "cssmodules_ls",
             "emmet_ls",
-            "quick_lint_js",
             "html",
             "jdtls",
             "jsonls",
