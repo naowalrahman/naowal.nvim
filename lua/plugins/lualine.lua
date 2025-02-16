@@ -7,6 +7,7 @@ return {
                 "mode",
                 separator = { left = "", right = "" },
                 right_padding = 2,
+                color = { gui = "bold" },
             },
         }
         opts.sections.lualine_z = {
