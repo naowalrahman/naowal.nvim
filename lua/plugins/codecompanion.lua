@@ -15,6 +15,15 @@ return {
                     schema = { model = { default = "deepseek-chat" } },
                 })
             end,
+            copilot = function()
+                return require("codecompanion.adapters").extend("copilot", {
+                    schema = {
+                        model = {
+                            default = "claude-3.5-sonnet",
+                        },
+                    },
+                })
+            end,
         },
         strategies = {
             chat = {
@@ -48,12 +57,12 @@ return {
             desc = "Add selected text to a chat buffer",
             mode = { "n", "v" },
         },
-        -- {
-        --     "<C-i>",
-        --     "<cmd>CodeCompanion<CR>",
-        --     desc = "CodeCompanion Inline Chat",
-        --     mode = {"n","v"}
-        -- },
+        {
+            "<C-i>",
+            "<cmd>'<,'>CodeCompanion<CR>",
+            desc = "CodeCompanion Inline Chat",
+            mode = { "v" },
+        },
         {
             "<C-a>",
             "<cmd>CodeCompanionActions<CR>",

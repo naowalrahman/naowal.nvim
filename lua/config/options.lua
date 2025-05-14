@@ -33,6 +33,8 @@ if vim.g.neovide then
     -- g.neovide_scale_factor = 1.2
 end
 
+g.ai_cmp = false
+
 vim.filetype.add {
     -- extension = {
     --   foo = "fooscript",
