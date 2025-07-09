@@ -1,33 +1,13 @@
 return {
     "olimorris/codecompanion.nvim",
     enabled = true,
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-treesitter/nvim-treesitter",
-    },
+    dependencies = require "plugins.codecompanion.dependencies",
     opts = {
-        adapters = {
-            deepseek = function()
-                return require("codecompanion.adapters").extend("deepseek", {
-                    env = {
-                        api_key = "cmd: \\cat $HOME/Desktop/apikeys/deepseek-apikey.txt",
-                    },
-                    schema = { model = { default = "deepseek-chat" } },
-                })
-            end,
-            copilot = function()
-                return require("codecompanion.adapters").extend("copilot", {
-                    schema = {
-                        model = {
-                            default = "claude-3.5-sonnet",
-                        },
-                    },
-                })
-            end,
-        },
+        adapters = require "plugins.codecompanion.adapters",
+        extensions = require "plugins.codecompanion.extension_opts",
         strategies = {
             chat = {
-                adapter = "copilot",
+                adapter = "claude4",
                 slash_commands = {
                     ["file"] = {
                         description = "Select a file using picker",
@@ -39,6 +19,9 @@ return {
                 },
             },
             inline = { adapter = "copilot" },
+        },
+        prompt_library = {
+            ["Agentic Workflow"] = require "plugins.codecompanion.agent",
         },
         display = {
             diff = { provider = "mini_diff" },
