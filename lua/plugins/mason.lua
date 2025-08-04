@@ -3,15 +3,16 @@ return {
     lazy = true,
     opts = {
         ensure_installed = {
-            "bashls",
+            "pyright",
+            "vtsls",
+            "html",
             "cssls",
             "cssmodules_ls",
-            "emmet_ls",
-            "html",
-            "jdtls",
             "jsonls",
+            "bashls",
+            "jdtls",
+            "emmet_ls",
             "marksman",
-            "pyright",
         },
     },
 }
