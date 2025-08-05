@@ -17,6 +17,25 @@ return {
                         },
                     },
                 },
+                tools = {
+                    groups = {
+                        ["Agent"] = {
+                            description = "Full agent mode with all tools",
+                            tools = {
+                                "cmd_runner",
+                                "create_file",
+                                "file_search",
+                                "get_changed_files",
+                                "grep_search",
+                                "insert_edit_into_file",
+                                "read_file",
+                                "vectorcode_toolbox",
+                                "mcp",
+                            },
+                            opts = { collapse_tools = false },
+                        },
+                    },
+                },
             },
             inline = { adapter = "copilot" },
         },
