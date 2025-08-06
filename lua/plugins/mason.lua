@@ -13,6 +13,7 @@ return {
             "jdtls",
             "emmet_ls",
             "marksman",
+            "lua_ls",
         },
     },
 }
