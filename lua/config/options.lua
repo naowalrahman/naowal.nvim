@@ -24,7 +24,7 @@ if vim.g.neovide then
     g.neovide_padding_right = 5
     g.neovide_padding_left = 5
     g.neovide_hide_mouse_when_typing = true
-    g.neovide_refresh_rate = 144
+    g.neovide_refresh_rate = 288
 
     g.neovide_scroll_animation_length = 0.13
     g.neovide_cursor_animate_command_line = true

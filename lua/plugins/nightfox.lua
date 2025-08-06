@@ -15,12 +15,22 @@ return {
                     variables = "NONE",
                 },
             },
+            groups = {
+                all = { -- default window border
+                    WinSeparator = { fg = "palette.comment", bg = "NONE" },
+                },
+            },
         },
     },
     {
-        "LazyVim/LazyVim",
+        "LazyVim/LazyVim", -- set colorscheme
         opts = {
             colorscheme = "carbonfox",
         },
+    },
+    {
+        "nvim-zh/colorful-winsep.nvim", -- active window border
+        config = true,
+        event = { "WinLeave" },
     },
 }

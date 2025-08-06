@@ -4,6 +4,20 @@ return {
     "j-hui/fidget.nvim",
     "ravitemer/codecompanion-history.nvim",
     {
+        "echasnovski/mini.diff", -- Cleaner diff
+        config = function()
+            local diff = require "mini.diff"
+            diff.setup {
+                -- Disabled by default
+                source = diff.gen_source.none(),
+            }
+        end,
+    },
+    {
+        "MeanderingProgrammer/render-markdown.nvim",
+        ft = { "markdown", "codecompanion" },
+    },
+    {
         "ravitemer/mcphub.nvim", -- Manage MCP servers
         cmd = "MCPHub",
         build = "bundled_build.lua",
