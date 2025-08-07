@@ -22,7 +22,7 @@ return {
         {
             {
                 role = roles.SYSTEM,
-                content = function(context) return SYSTEM_PROMPT end,
+                content = SYSTEM_PROMPT,
             },
             {
                 role = roles.USER,
