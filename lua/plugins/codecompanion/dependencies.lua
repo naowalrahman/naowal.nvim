@@ -4,7 +4,7 @@ return {
     "j-hui/fidget.nvim",
     "ravitemer/codecompanion-history.nvim",
     {
-        "echasnovski/mini.diff", -- Cleaner diff
+        "nvim-mini/mini.diff", -- Cleaner diff
         config = function()
             local diff = require "mini.diff"
             diff.setup {
@@ -27,11 +27,11 @@ return {
             }
         end,
     },
-    {
-        "Davidyz/VectorCode", -- Index and search code in your repositories
-        version = "*",
-        build = "uv tool install vectorcode",
-    },
+    -- {
+    --     "Davidyz/VectorCode", -- Index and search code in your repositories
+    --     version = "*",
+    --     build = "uv tool install vectorcode",
+    -- },
     {
         "HakonHarnes/img-clip.nvim", -- Share images with the chat buffer
         event = "VeryLazy",
