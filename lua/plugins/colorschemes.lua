@@ -23,9 +23,20 @@ return {
         },
     },
     {
+        "vague-theme/vague.nvim",
+        opts = {
+            style = {
+                conditionals = "bold",
+                keywords = "bold",
+                keyword_return = "bold",
+                strings = "none",
+            },
+        },
+    },
+    {
         "LazyVim/LazyVim", -- set colorscheme
         opts = {
-            colorscheme = "carbonfox",
+            colorscheme = "vague",
         },
     },
     {

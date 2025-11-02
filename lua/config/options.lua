@@ -17,10 +17,10 @@ opt.breakindent = true
 opt.winblend = 30
 
 if vim.g.neovide then
-    -- opt.linespace = -1
+    opt.linespace = 2
 
-    g.neovide_padding_top = 0
-    g.neovide_padding_bottom = 0
+    g.neovide_padding_top = 2
+    g.neovide_padding_bottom = 2
     g.neovide_padding_right = 5
     g.neovide_padding_left = 5
     g.neovide_hide_mouse_when_typing = true
@@ -30,7 +30,7 @@ if vim.g.neovide then
     g.neovide_cursor_animate_command_line = true
     g.neovide_cursor_animate_in_insert_mode = true
     -- g.neovide_cursor_smooth_blink = true
-    g.neovide_scale_factor = 1.1
+    g.neovide_scale_factor = 1
 end
 
 g.ai_cmp = false
