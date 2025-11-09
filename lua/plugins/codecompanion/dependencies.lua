@@ -27,11 +27,11 @@ return {
             }
         end,
     },
-    -- {
-    --     "Davidyz/VectorCode", -- Index and search code in your repositories
-    --     version = "*",
-    --     build = "uv tool install vectorcode",
-    -- },
+    {
+        "Davidyz/VectorCode", -- Index and search code in your repositories
+        version = "*",
+        build = "uv tool install vectorcode",
+    },
     {
         "HakonHarnes/img-clip.nvim", -- Share images with the chat buffer
         event = "VeryLazy",
