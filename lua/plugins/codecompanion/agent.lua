@@ -1,8 +1,5 @@
 -- local providers = require "codecompanion.providers"
 -- local ui_utils = require "codecompanion.utils.ui"
-
-local fmt = string.format
-
 local roles = {
     LLM = "llm",
     USER = "user",

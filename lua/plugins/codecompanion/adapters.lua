@@ -1,19 +1,21 @@
 return {
-    deepseek = function()
-        return require("codecompanion.adapters").extend("deepseek", {
-            env = {
-                api_key = "cmd: \\cat $HOME/Desktop/apikeys/deepseek-apikey.txt",
-            },
-            schema = { model = { default = "deepseek-chat" } },
-        })
-    end,
-    claude4 = function()
-        return require("codecompanion.adapters").extend("copilot", {
-            schema = {
-                model = {
-                    default = "claude-sonnet-4",
+    http = {
+        deepseek = function()
+            return require("codecompanion.adapters").extend("deepseek", {
+                env = {
+                    api_key = "cmd: \\cat $HOME/Desktop/apikeys/deepseek.txt",
                 },
-            },
-        })
-    end,
+                schema = { model = { default = "deepseek-chat" } },
+            })
+        end,
+    },
+    acp = {
+        gemini_cli = function()
+            return require("codecompanion.adapters").extend("gemini_cli", {
+                env = {
+                    api_key = "cmd: \\cat $HOME/Desktop/apikeys/gemini.txt.txt",
+                },
+            })
+        end,
+    },
 }
