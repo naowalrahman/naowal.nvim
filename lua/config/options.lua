@@ -19,8 +19,8 @@ opt.winblend = 30
 if vim.g.neovide then
     opt.linespace = 2
 
-    g.neovide_padding_top = 2
-    g.neovide_padding_bottom = 2
+    g.neovide_padding_top = 0
+    g.neovide_padding_bottom = 0
     g.neovide_padding_right = 5
     g.neovide_padding_left = 5
     g.neovide_hide_mouse_when_typing = true
