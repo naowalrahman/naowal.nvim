@@ -3,7 +3,14 @@ return {
     opts = {
         keymap = {
             preset = "enter",
-            ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+            ["<Tab>"] = {
+                "select_next",
+                "snippet_forward",
+                function() -- sidekick next edit suggestion
+                    return require("sidekick").nes_jump_or_apply()
+                end,
+                "fallback",
+            },
             ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
         },
         completion = {
@@ -27,7 +34,7 @@ return {
                     winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
                 },
             },
-            ghost_text = { enabled = true },
+            ghost_text = { enabled = false },
         },
         signature = {
             enabled = true,
@@ -40,4 +47,5 @@ return {
         sources = { per_filetype = { codecompanion = { "codecompanion" } } },
         appearance = { nerd_font_variant = "normal" },
     },
+    needs = { "sidekick.nvim", "codecompanion.nvim" },
 }

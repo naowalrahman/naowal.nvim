@@ -1,7 +1,7 @@
 return {
     "folke/noice.nvim",
-    opts = function(_, opts)
-        opts.routes = {
+    opts = {
+        routes = {
             {
                 filter = {
                     event = "lsp",
@@ -10,6 +10,7 @@ return {
                 },
                 opts = { skip = true },
             },
-        }
-    end,
+        },
+        lsp = { signature = { enabled = false } },
+    },
 }
