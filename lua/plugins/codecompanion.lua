@@ -2,10 +2,11 @@ return {
     "olimorris/codecompanion.nvim",
     enabled = true,
     dependencies = require "plugins.codecompanion.dependencies",
+    --
     opts = {
         adapters = require "plugins.codecompanion.adapters",
         extensions = require "plugins.codecompanion.extension_opts",
-        strategies = {
+        interactions = {
             chat = {
                 name = "copilot",
                 model = "claude-sonnet-4.5",
