@@ -49,6 +49,6 @@ vim.filetype.add {
         [".*/hypr/.*%.conf"] = "hyprlang",
     },
     filename = {
-        [".zshrc"] = "sh",
+        [".zshrc"] = "zsh",
     },
 }
