@@ -7,16 +7,8 @@ return {
         extensions = require "plugins.codecompanion.extension_opts",
         strategies = {
             chat = {
-                adapter = "claude4",
-                slash_commands = {
-                    ["file"] = {
-                        description = "Select a file using picker",
-                        opts = {
-                            provider = "snacks",
-                            contains_code = true,
-                        },
-                    },
-                },
+                name = "copilot",
+                model = "claude-sonnet-4.5",
                 tools = {
                     groups = {
                         ["Agent"] = {
@@ -59,7 +51,7 @@ return {
             "ga",
             "<cmd>CodeCompanionChat Add<CR>",
             desc = "Add selected text to a chat buffer",
-            mode = { "n", "v" },
+            mode = { "v" },
         },
         {
             "<C-i>",

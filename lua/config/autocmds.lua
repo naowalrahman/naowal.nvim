@@ -3,7 +3,7 @@
 -- Add any additional autocmds here
 
 -- start vim with copilot disabled by default
-vim.cmd "silent! Copilot disable"
+-- vim.cmd "silent! Copilot disable"
 
 -- file runner config
 local compile_commands = {
