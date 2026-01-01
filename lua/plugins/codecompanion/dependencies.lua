@@ -11,11 +11,14 @@ return {
         "ravitemer/mcphub.nvim", -- Manage MCP servers
         cmd = "MCPHub",
         build = "bundled_build.lua",
-        config = function()
-            require("mcphub").setup {
-                use_bundled_binary = true, -- Use local `mcp-hub` binary
-            }
-        end,
+        opts = {
+            use_bundled_binary = true, -- Use local `mcp-hub` binary
+            workspace = {
+                enabled = true, -- Enable project-local configuration files
+                look_for = { ".mcphub/servers.json", ".vscode/mcp.json", ".cursor/mcp.json" },
+                reload_on_dir_changed = true,
+            },
+        },
     },
     {
         "Davidyz/VectorCode", -- Index and search code in your repositories
