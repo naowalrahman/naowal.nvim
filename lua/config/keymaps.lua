@@ -5,3 +5,4 @@
 -- file runner
 vim.keymap.set("n", "<F5>", ":RunFile<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<F6>", ":CompileFile<CR>", { noremap = true, silent = true })
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })

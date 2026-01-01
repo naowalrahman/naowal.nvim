@@ -3,7 +3,7 @@ return {
     lazy = true,
     opts = {
         ensure_installed = {
-            "pyright",
+            "pyrefly",
             "vtsls",
             "html",
             "cssls",

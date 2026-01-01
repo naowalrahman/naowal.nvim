@@ -1,16 +1,18 @@
-return {
-    "folke/snacks.nvim",
-    opts = function(_, opts)
-        opts.dashboard = {
-            preset = {
-                header = [[
+local header = [[
 ███╗   ██╗ █████╗  ██████╗ ██╗    ██╗ █████╗ ██╗     ██╗
 ████╗  ██║██╔══██╗██╔═══██╗██║    ██║██╔══██╗██║     ██║
 ██╔██╗ ██║███████║██║   ██║██║ █╗ ██║███████║██║     ██║
 ██║╚██╗██║██╔══██║██║   ██║██║███╗██║██╔══██║██║     ╚═╝
 ██║ ╚████║██║  ██║╚██████╔╝╚███╔███╔╝██║  ██║███████╗██╗
 ╚═╝  ╚═══╝╚═╝  ╚═╝ ╚═════╝  ╚══╝╚══╝ ╚═╝  ╚═╝╚══════╝╚═╝
-                ]],
+]]
+
+return {
+    "folke/snacks.nvim",
+    opts = {
+        dashboard = {
+            preset = {
+                header = header,
             },
             sections = {
                 { section = "header" },
@@ -36,7 +38,7 @@ return {
                     icon = " ",
                     title = "Git Status",
                     section = "terminal",
-                    enabled = Snacks.git.get_root() ~= nil,
+                    enabled = function() return Snacks.git.get_root() ~= nil end,
                     cmd = "git status --short --branch --renames",
                     height = 5,
                     padding = 1,
@@ -45,6 +47,13 @@ return {
                 },
                 { section = "startup" },
             },
-        }
-    end,
+        },
+        picker = {
+            sources = {
+                projects = {
+                    dev = { "~/Desktop/code", "~/Desktop/code/nvim" },
+                },
+            },
+        },
+    },
 }

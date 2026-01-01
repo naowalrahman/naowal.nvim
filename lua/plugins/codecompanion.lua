@@ -1,4 +1,5 @@
 return {
+    -- dir = "/home/naowal/Desktop/code/codecompanion.nvim",
     "olimorris/codecompanion.nvim",
     enabled = true,
     dependencies = require "plugins.codecompanion.dependencies",
@@ -28,6 +29,19 @@ return {
                             },
                             opts = { collapse_tools = false },
                         },
+                        ["Planning"] = {
+                            description = "Tools for planning and asking clarifying questions",
+                            tools = {
+                                "file_search",
+                                "get_changed_files",
+                                "grep_search",
+                                "read_file",
+                                "vectorcode_toolbox",
+                                "context7",
+                                "brave_search__brave_web_search",
+                                "fetch_webpage",
+                            },
+                        },
                     },
                 },
             },
@@ -37,14 +51,14 @@ return {
             ["Agentic Workflow"] = require "plugins.codecompanion.agent",
         },
         display = {
-            diff = { provider = "mini_diff" },
+            diff = { provider = "inline" },
         },
     },
     keys = {
         {
-            "<leader>a",
+            "<leader>ac",
             "<cmd>CodeCompanionChat Toggle<CR>",
-            desc = "Toggle a chat buffer",
+            desc = "Toggle a CodeCompanion chat buffer",
             mode = { "n", "v" },
         },
         {

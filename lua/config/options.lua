@@ -4,11 +4,10 @@
 
 local opt, g = vim.opt, vim.g
 
-opt.shiftwidth = 4
-opt.tabstop = 4
-opt.softtabstop = 4
+-- shiftwidth, tabstop, and softtabstop controlled by indent-o-matic plugin
 opt.wrap = true
 opt.breakindent = true
+opt.smartindent = true
 
 -- opt.guifont = "JetbrainsMono Nerd Font:h12"
 -- opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,"

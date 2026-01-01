@@ -9,13 +9,4 @@ return {
             })
         end,
     },
-    acp = {
-        gemini_cli = function()
-            return require("codecompanion.adapters").extend("gemini_cli", {
-                env = {
-                    api_key = "cmd: \\cat $HOME/Desktop/apikeys/gemini.txt.txt",
-                },
-            })
-        end,
-    },
 }

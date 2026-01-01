@@ -1,14 +1,14 @@
 return {
     "saghen/blink.cmp",
+    -- dependencies = { "Kaiser-Yang/blink-cmp-avante" },
     opts = {
         keymap = {
             preset = "enter",
             ["<Tab>"] = {
                 "select_next",
                 "snippet_forward",
-                function() -- sidekick next edit suggestion
-                    return require("sidekick").nes_jump_or_apply()
-                end,
+                function() return require("sidekick").nes_jump_or_apply() end,
+                function() vim.lsp.inline_completion.get() end,
                 "fallback",
             },
             ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
@@ -44,7 +44,18 @@ return {
                 winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpSignatureHelpBorder,Search:None",
             },
         },
-        sources = { per_filetype = { codecompanion = { "codecompanion" } } },
+        sources = {
+            per_filetype = {
+                codecompanion = { "codecompanion" },
+                -- AvanteInput = { "avante" },
+            },
+            -- providers = {
+            --     avante = {
+            --         module = "blink-cmp-avante",
+            --         name = "Avante",
+            --     },
+            -- },
+        },
         appearance = { nerd_font_variant = "normal" },
     },
     needs = { "sidekick.nvim", "codecompanion.nvim" },
