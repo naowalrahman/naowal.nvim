@@ -18,7 +18,5 @@ return {
                 separator = { left = "", right = "" },
             },
         }
-
-        table.insert(opts.sections.lualine_x, 1, { require("opencode").statusline })
     end,
 }

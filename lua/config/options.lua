@@ -51,3 +51,5 @@ vim.filetype.add {
         [".zshrc"] = "zsh",
     },
 }
+
+vim.g.lazyvim_python_lsp = "pyrefly"

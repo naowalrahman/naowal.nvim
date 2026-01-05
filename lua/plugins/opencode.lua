@@ -1,56 +1,45 @@
+require("which-key").add { "<leader>o", group = "+opencode", icon = "" }
 return {
-    "NickvanDyke/opencode.nvim",
-    dependencies = {
-        "folke/snacks.nvim",
+    {
+        "NickvanDyke/opencode.nvim",
+        dependencies = { "folke/snacks.nvim" },
+        config = function()
+            -- ---@type opencode.Opts
+            -- vim.g.opencode_opts = {} -- optional configuration
+
+            -- Required for `opts.events.reload`.
+            vim.o.autoread = true
+
+            local opencode = require "opencode"
+            vim.keymap.set(
+                { "n", "x" },
+                "<leader>ox",
+                function() opencode.ask("@this: ", { submit = true }) end,
+                { desc = "Ask opencode" }
+            )
+            vim.keymap.set(
+                { "n", "x" },
+                "<leader>oe",
+                function() opencode.select() end,
+                { desc = "Execute opencode action" }
+            )
+            vim.keymap.set({ "n", "t" }, "<C-.>", function() opencode.toggle() end, { desc = "Toggle opencode" })
+            vim.keymap.set(
+                { "n", "x" },
+                "<leader>or",
+                function() return opencode.operator "@this " end,
+                { expr = true, desc = "Add range to opencode" }
+            )
+            vim.keymap.set(
+                "n",
+                "<leader>ol",
+                function() return opencode.operator "@this " .. "_" end,
+                { expr = true, desc = "Add line to opencode" }
+            )
+        end,
     },
-    config = function()
-        ---@type opencode.Opts
-        vim.g.opencode_opts = {
-            -- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition".
-        }
-
-        -- Required for `opts.events.reload`.
-        vim.o.autoread = true
-
-        -- Recommended/example keymaps.
-        vim.keymap.set(
-            { "n", "x" },
-            "<leader>ox",
-            function() require("opencode").ask("@this: ", { submit = true }) end,
-            { desc = "Ask opencode" }
-        )
-        vim.keymap.set(
-            { "n", "x" },
-            "<leader>oe",
-            function() require("opencode").select() end,
-            { desc = "Execute opencode action…" }
-        )
-        vim.keymap.set({ "n", "t" }, "<C-.>", function() require("opencode").toggle() end, { desc = "Toggle opencode" })
-
-        vim.keymap.set(
-            { "n", "x" },
-            "<leader>or",
-            function() return require("opencode").operator "@this " end,
-            { expr = true, desc = "Add range to opencode" }
-        )
-        vim.keymap.set(
-            "n",
-            "<leader>ol",
-            function() return require("opencode").operator "@this " .. "_" end,
-            { expr = true, desc = "Add line to opencode" }
-        )
-
-        vim.keymap.set(
-            "n",
-            "<S-C-u>",
-            function() require("opencode").command "session.half.page.up" end,
-            { desc = "Scroll opencode half page up" }
-        )
-        vim.keymap.set(
-            "n",
-            "<S-C-d>",
-            function() require("opencode").command "session.half.page.down" end,
-            { desc = "Scroll opencode half page down" }
-        )
-    end,
+    {
+        "nvim-lualine/lualine.nvim",
+        opts = function(_, opts) table.insert(opts.sections.lualine_x, 1, { require("opencode").statusline }) end,
+    },
 }

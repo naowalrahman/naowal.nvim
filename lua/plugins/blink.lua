@@ -7,7 +7,13 @@ return {
             ["<Tab>"] = {
                 "select_next",
                 "snippet_forward",
-                function() return require("sidekick").nes_jump_or_apply() end,
+                function(cmp)
+                    if vim.b[vim.api.nvim_get_current_buf()].nes_state then
+                        cmp.hide()
+                        local nes = require "copilot-lsp.nes"
+                        return nes.walk_cursor_start_edit() or (nes.apply_pending_nes() and nes.walk_cursor_end_edit())
+                    end
+                end,
                 function() vim.lsp.inline_completion.get() end,
                 "fallback",
             },
