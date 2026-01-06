@@ -42,4 +42,10 @@ return {
         "nvim-lualine/lualine.nvim",
         opts = function(_, opts) table.insert(opts.sections.lualine_x, 1, { require("opencode").statusline }) end,
     },
+    {
+        "folke/sidekick.nvim",
+        opts = {
+            cli = { enabled = false },
+        },
+    },
 }
