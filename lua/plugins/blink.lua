@@ -28,7 +28,6 @@ return {
                             { "kind_icon" },
                             { "label", gap = 1 },
                             { "kind" },
-                            { "source_name" },
                         },
                         components = {
                             label = {
@@ -43,16 +42,6 @@ return {
                                     local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
                                     return hl
                                 end,
-                            },
-                            source_name = {
-                                text = function(ctx)
-                                    if ctx.source_name == "LSP" then
-                                        local client = vim.lsp.get_client_by_id(ctx.item.client_id)
-                                        if client then return string.format("[%s]", client.name) end
-                                    end
-                                    return string.format("[%s]", ctx.source_name)
-                                end,
-                                highlight = "BlinkCmpLabelDescription",
                             },
                         },
                     },
