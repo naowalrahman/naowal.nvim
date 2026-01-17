@@ -19,8 +19,8 @@ return {
             completion = {
                 list = { selection = { auto_insert = false, preselect = true } },
                 menu = {
-                    -- border = "rounded",
-                    -- winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+                    border = "rounded",
+                    winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
                     winblend = 10,
                     draw = {
                         treesitter = { "lsp" },

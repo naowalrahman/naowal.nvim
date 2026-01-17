@@ -4,8 +4,8 @@ return {
         "NickvanDyke/opencode.nvim",
         dependencies = { "folke/snacks.nvim" },
         config = function()
-            -- ---@type opencode.Opts
-            -- vim.g.opencode_opts = {} -- optional configuration
+            ---@type opencode.Opts
+            vim.g.opencode_opts = {} -- optional configuration
 
             -- Required for `opts.events.reload`.
             vim.o.autoread = true
