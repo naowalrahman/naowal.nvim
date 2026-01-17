@@ -2,6 +2,7 @@ require("which-key").add { "<leader>o", group = "+opencode", icon = "" }
 return {
     {
         "NickvanDyke/opencode.nvim",
+        lazy = true,
         dependencies = { "folke/snacks.nvim" },
         config = function()
             ---@type opencode.Opts
@@ -23,7 +24,12 @@ return {
                 function() opencode.select() end,
                 { desc = "Execute opencode action" }
             )
-            vim.keymap.set({ "n", "t" }, "<C-.>", function() opencode.toggle() end, { desc = "Toggle opencode" })
+            vim.keymap.set(
+                { "n", "t" },
+                "<A-.>",
+                function() opencode.toggle() end,
+                { desc = "Toggle opencode", noremap = true }
+            )
             vim.keymap.set(
                 { "n", "x" },
                 "<leader>or",
@@ -41,11 +47,5 @@ return {
     {
         "nvim-lualine/lualine.nvim",
         opts = function(_, opts) table.insert(opts.sections.lualine_x, 1, { require("opencode").statusline }) end,
-    },
-    {
-        "folke/sidekick.nvim",
-        opts = {
-            cli = { enabled = false },
-        },
     },
 }

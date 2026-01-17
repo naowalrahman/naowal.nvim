@@ -43,5 +43,8 @@ return {
         "nvim-zh/colorful-winsep.nvim", -- active window border
         config = true,
         event = { "WinLeave" },
+        opts = {
+            animate = { enabled = false },
+        },
     },
 }

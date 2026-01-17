@@ -15,8 +15,8 @@ local compile_commands = {
 local run_commands = {
     python = "python3 %",
     lua = "lua %",
-    cpp = "./%:r",
-    c = "./%:r",
+    cpp = "%:r",
+    c = "%:r",
     java = "java %:r",
     sh = "bash %",
 }

@@ -1,6 +1,7 @@
 return {
     {
         "xzbdmw/colorful-menu.nvim",
+        lazy = true,
     },
     {
         "saghen/blink.cmp",
