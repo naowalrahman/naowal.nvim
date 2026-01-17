@@ -4,7 +4,7 @@ return {
         opts = {
             options = {
                 styles = {
-                    comments = "NONE",
+                    comments = "italic",
                     conditionals = "bold",
                     keywords = "bold",
                     functions = "NONE",

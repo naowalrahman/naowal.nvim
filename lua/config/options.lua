@@ -16,7 +16,7 @@ opt.smartindent = true
 opt.winblend = 20
 
 if vim.g.neovide then
-    opt.linespace = 2
+    -- opt.linespace = 2
 
     g.neovide_padding_top = 3
     g.neovide_padding_bottom = 3
