@@ -1,6 +1,6 @@
 # naowal.nvim
 
-My LazyVim user configuration.
+My LazyVim user configuration, which I use combined with tmux.
 
 To setup, put the contents of this repository in `~/.config/nvim`.
 

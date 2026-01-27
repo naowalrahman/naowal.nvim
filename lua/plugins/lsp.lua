@@ -46,6 +46,16 @@ return {
         end,
     },
     {
+        "stevearc/conform.nvim",
+        opts = {
+            formatters_by_ft = {
+                sh = { "beautysh" },
+                bash = { "beautysh" },
+                zsh = { "beautysh" },
+            },
+        },
+    },
+    {
         "mfussenegger/nvim-lint",
         opts = {
             linters = {

@@ -7,9 +7,9 @@ vim.keymap.set("n", "<F5>", ":RunFile<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<F6>", ":CompileFile<CR>", { noremap = true, silent = true })
 
 -- terminal escape
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
+-- vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
 
--- toggle   nline completions (copilot)
+-- toggle inline completions (copilot)
 vim.keymap.set("n", "<leader>ct", function()
     local enabled = vim.lsp.inline_completion.is_enabled()
     vim.lsp.inline_completion.enable(not enabled)
