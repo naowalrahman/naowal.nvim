@@ -77,6 +77,7 @@ return {
                     end
                     require("opencode").prompt(table.concat(entries, "\n") .. "\n")
                 end,
+                -- opencode_send = require("opencode.integrations.picker.snacks").opencode_send,
             },
             win = {
                 input = {

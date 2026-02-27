@@ -9,10 +9,21 @@ vim.keymap.set("n", "<F6>", ":CompileFile<CR>", { noremap = true, silent = true 
 -- terminal escape
 -- vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
 
--- toggle inline completions (copilot)
-vim.keymap.set("n", "<leader>ct", function()
-    local enabled = vim.lsp.inline_completion.is_enabled()
-    vim.lsp.inline_completion.enable(not enabled)
+-- toggle inline completions (windsurf codeium)
+vim.keymap.set(
+    "n",
+    "<leader>ct",
+    function() require("codeium").toggle() end,
+    { silent = false, desc = "Toggle Codeium completions" }
+)
 
-    vim.notify("Inline completions " .. (enabled and "disabled" or "enabled"))
-end, { silent = false, desc = "Toggle inline completions" })
+-- set working directory to current buffer's directory
+vim.keymap.set(
+    "n",
+    "<leader>cb",
+    ":cd %:p:h<CR>:pwd<CR>",
+    { noremap = true, silent = false, desc = "Cd to buffer dir" }
+)
+
+-- open code actions
+vim.keymap.set("n", "<C-x>", function() vim.lsp.buf.code_action() end, { noremap = true, silent = true })

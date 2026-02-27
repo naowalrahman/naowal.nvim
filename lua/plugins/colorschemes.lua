@@ -25,12 +25,13 @@ return {
     {
         "vague-theme/vague.nvim",
         opts = {
-            style = {
-                conditionals = "bold",
-                keywords = "bold",
-                keyword_return = "bold",
-                strings = "none",
-            },
+            on_highlights = function(highlights, _)
+                highlights["@keyword"].bold = true
+                highlights["@keyword.conditional"].bold = true
+                highlights["@keyword.return"].bold = true
+                highlights["@keyword.return"].italic = false
+                highlights["@string"].italic = false
+            end,
         },
     },
     {

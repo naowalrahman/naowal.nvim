@@ -11,9 +11,8 @@ return {
                 ["<Tab>"] = {
                     "select_next",
                     "snippet_forward",
-                    function() return require("sidekick").nes_jump_or_apply() end,
-                    function() vim.lsp.inline_completion.get() end,
-                    "fallback",
+                    function() return LazyVim.cmp.actions.ai_nes() end,
+                    function() return LazyVim.cmp.actions.ai_accept() end,
                 },
                 ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
             },
@@ -27,7 +26,7 @@ return {
                         treesitter = { "lsp" },
                         columns = {
                             { "kind_icon" },
-                            { "label", gap = 1 },
+                            { "label" },
                             { "kind" },
                         },
                         components = {
@@ -38,7 +37,7 @@ return {
                                 end,
                             },
                             kind_icon = {
-                                ellipsis = false,
+                                ellipsis = true,
                                 highlight = function(ctx)
                                     local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
                                     return hl

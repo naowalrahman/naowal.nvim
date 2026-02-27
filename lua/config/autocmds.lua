@@ -64,3 +64,8 @@ end
 
 vim.api.nvim_create_user_command("CompileFile", function() process_file(true) end, {})
 vim.api.nvim_create_user_command("RunFile", function() process_file(false) end, {})
+
+vim.api.nvim_set_hl(0, "CodeiumSuggestion", { link = "Comment" })
+vim.api.nvim_create_autocmd("ColorScheme", {
+    callback = function() vim.api.nvim_set_hl(0, "CodeiumSuggestion", { link = "Comment" }) end,
+})

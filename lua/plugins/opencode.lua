@@ -2,11 +2,21 @@ require("which-key").add { "<leader>o", group = "+opencode", icon = "" }
 return {
     {
         "NickvanDyke/opencode.nvim",
-        lazy = true,
+        -- dir = "~/Desktop/code/opencode.nvim",
+        -- lazy = true,
         dependencies = { "folke/snacks.nvim" },
         config = function()
-            ---@type opencode.Opts
-            vim.g.opencode_opts = {} -- optional configuration
+            -- @type opencode.Opts
+            vim.g.opencode_opts = {
+                lsp = {
+                    enabled = true,
+                    handlers = {
+                        hover = {
+                            enabled = false,
+                        },
+                    },
+                },
+            }
 
             -- Required for `opts.events.reload`.
             vim.o.autoread = true
