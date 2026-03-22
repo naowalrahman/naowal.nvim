@@ -7,6 +7,8 @@ local header = [[
 ╚═╝  ╚═══╝╚═╝  ╚═╝ ╚═════╝  ╚══╝╚══╝ ╚═╝  ╚═╝╚══════╝╚═╝
 ]]
 
+local is_git_repo = function() return Snacks.git.get_root() ~= nil end
+
 return {
     "folke/snacks.nvim",
     opts = {
@@ -23,7 +25,7 @@ return {
                     height = 5,
                     padding = 1,
                 },
-                { section = "keys", gap = 1, padding = 1 },
+                { section = "keys", padding = 1 },
                 {
                     pane = 2,
                     icon = " ",
@@ -32,18 +34,42 @@ return {
                     indent = 2,
                     padding = 1,
                 },
-                { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+                {
+                    pane = 2,
+                    icon = " ",
+                    title = "Projects",
+                    section = "projects",
+                    indent = 2,
+                    padding = 1,
+                },
+                {
+                    icon = " ",
+                    title = "Recent Commits",
+                    section = "terminal",
+                    enabled = is_git_repo,
+                    cmd = "git log --oneline -n 5 --format='%C(auto)%h %<(50,trunc)%s' --color=always | sed 's/\\.\\.$/…/'",
+                    padding = 1,
+                    height = 5,
+                    ttl = 5 * 60,
+                    indent = 2,
+                    key = "d",
+                    action = function()
+                        local remote = vim.fn.system("git remote get-url origin"):gsub("\n", "")
+                        local branch = vim.fn.system("git branch --show-current"):gsub("\n", "")
+                        local url = remote:gsub("^[%w]+@([^:]+):", "https://%1/"):gsub("%.git$", "")
+                        vim.fn.system("xdg-open " .. url .. "/commits/" .. branch)
+                    end,
+                },
                 {
                     pane = 2,
                     icon = " ",
                     title = "Git Status",
                     section = "terminal",
-                    enabled = function() return Snacks.git.get_root() ~= nil end,
+                    enabled = is_git_repo,
                     cmd = "git status --short --branch --renames",
-                    height = 5,
                     padding = 1,
                     ttl = 5 * 60,
-                    indent = 3,
+                    indent = 2,
                 },
                 { section = "startup" },
             },
