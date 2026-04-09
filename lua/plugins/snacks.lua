@@ -81,27 +81,22 @@ return {
                 },
             },
             actions = {
-                ---@param picker snacks.Picker
+                ---@type snacks.picker.Action.spec
                 opencode_send = function(picker)
-                    local entries = {}
-                    for _, item in ipairs(picker:selected { fallback = true }) do
-                        local parts = {}
-                        -- File reference with optional line range
-                        if item.file then
-                            local ref = "@" .. item.file
-                            if item.pos then
-                                ref = ref .. (" L%d"):format(item.pos[1])
-                                if item.end_pos and item.end_pos[1] ~= item.pos[1] then
-                                    ref = ref .. ("-L%d"):format(item.end_pos[1])
-                                end
-                            end
-                            parts[#parts + 1] = ref
+                    local ctx = require "opencode.context"
+                    local items = vim.tbl_map(function(item)
+                        if not item.file then return item.text end
+                        local text = item.text
+                        if text:find(item.file, 1, true) then
+                            text = text:gsub(vim.pesc(item.file), "", 1):match "^%s*(.-)%s*$"
                         end
-                        -- Text content
-                        if item.text and item.text ~= "" then parts[#parts + 1] = item.text end
-                        entries[#entries + 1] = table.concat(parts, "\n  ")
-                    end
-                    require("opencode").prompt(table.concat(entries, "\n") .. "\n")
+                        return ctx.format(item.file, {
+                            start_line = item.pos and item.pos[1] or nil,
+                            end_line = item.end_pos and item.end_pos[1] or nil,
+                        }) .. " " .. text
+                    end, picker:selected { fallback = true })
+
+                    if #items > 0 then require("opencode").prompt(table.concat(items, "\n") .. "\n") end
                 end,
                 -- opencode_send = require("opencode.integrations.picker.snacks").opencode_send,
             },
