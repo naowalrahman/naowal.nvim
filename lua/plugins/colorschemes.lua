@@ -36,16 +36,12 @@ return {
     },
     {
         "LazyVim/LazyVim", -- set colorscheme
-        opts = {
-            colorscheme = "vague",
-        },
+        opts = { colorscheme = "vague" },
     },
     {
         "nvim-zh/colorful-winsep.nvim", -- active window border
         config = true,
         event = { "WinLeave" },
-        opts = {
-            animate = { enabled = false },
-        },
+        opts = { animate = { enabled = false } },
     },
 }
