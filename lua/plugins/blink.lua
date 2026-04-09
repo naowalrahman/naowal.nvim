@@ -13,6 +13,7 @@ return {
                     "snippet_forward",
                     function() return LazyVim.cmp.actions.ai_nes() end,
                     function() return LazyVim.cmp.actions.ai_accept() end,
+                    "fallback",
                 },
                 ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
             },
