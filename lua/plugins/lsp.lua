@@ -17,32 +17,8 @@ return {
                 end,
             }
 
-            -- Completions only (disable diagnostics)
-            opts.servers.pyrefly = {
-                handlers = {
-                    ["textDocument/publishDiagnostics"] = function() end,
-                },
-            }
-
-            -- Everything else (diagnostics, hover, references, etc.)
-            opts.servers.basedpyright = {
-                on_attach = function(client, _)
-                    client.server_capabilities.completionProvider = false
-                    client.server_capabilities.documentFormattingProvider = false
-                    client.server_capabilities.documentRangeFormattingProvider = false
-                end,
-                settings = {
-                    basedpyright = {
-                        analysis = {
-                            typeCheckingMode = "standard",
-                            autoSearchPaths = true,
-                            useLibraryCodeForTypes = true,
-                            diagnosticMode = "workspace",
-                            disableOrganizeImports = true, -- let Ruff handle organizing imports
-                        },
-                    },
-                },
-            }
+            -- Type checking, completions, hover, references, etc.
+            opts.servers.ty = {}
         end,
     },
     {

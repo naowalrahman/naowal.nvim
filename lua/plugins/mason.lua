@@ -3,7 +3,8 @@ return {
     lazy = true,
     opts = {
         ensure_installed = {
-            "pyrefly",
+            "ty",
+            "ruff",
             "vtsls",
             "html",
             "cssls",
