@@ -35,7 +35,8 @@ return {
         },
     },
     {
-        "LazyVim/LazyVim", -- set colorscheme
+        "LazyVim/LazyVim", -- set colorscheme, override version = "*" from LazyVim's own spec
+        version = false,
         opts = { colorscheme = "vague" },
     },
     {
