@@ -6,7 +6,7 @@ return {
         -- lazy = true,
         dependencies = { "folke/snacks.nvim" },
         config = function()
-            -- @type opencode.Opts
+            ---@type opencode.Opts
             vim.g.opencode_opts = {
                 lsp = {
                     enabled = true,
