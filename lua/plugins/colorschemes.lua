@@ -35,9 +35,22 @@ return {
         },
     },
     {
+        "craftzdog/solarized-osaka.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {
+            on_highlights = function(hl, c)
+                hl.SnacksPicker = { bg = c.bg_float }
+                hl.SnacksPickerBorder = { fg = c.bg_float, bg = c.none }
+                hl.SnacksPickerBox = { bg = c.none }
+                hl.SnacksPickerTitle = { fg = c.fg_float, bg = c.bg_float }
+            end,
+        },
+    },
+    {
         "LazyVim/LazyVim", -- set colorscheme, override version = "*" from LazyVim's own spec
         version = false,
-        opts = { colorscheme = "vague" },
+        opts = { colorscheme = "solarized-osaka" },
     },
     {
         "nvim-zh/colorful-winsep.nvim", -- active window border
