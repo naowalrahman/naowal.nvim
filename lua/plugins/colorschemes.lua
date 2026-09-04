@@ -35,22 +35,32 @@ return {
         },
     },
     {
-        "craftzdog/solarized-osaka.nvim",
+        "rebelot/kanagawa.nvim",
         lazy = false,
         priority = 1000,
+        build = ":KanagawaCompile",
         opts = {
-            on_highlights = function(hl, c)
-                hl.SnacksPicker = { bg = c.bg_float }
-                hl.SnacksPickerBorder = { fg = c.bg_float, bg = c.none }
-                hl.SnacksPickerBox = { bg = c.none }
-                hl.SnacksPickerTitle = { fg = c.fg_float, bg = c.bg_float }
-            end,
+            compile = true,
+            commentStyle = { italic = true },
+            keywordStyle = { bold = true, italic = false },
+            statementStyle = { bold = true },
+            functionStyle = {},
+            typeStyle = {},
         },
+        config = function(_, opts)
+            require("kanagawa").setup(opts)
+            -- rebuild compiled colorscheme when this file is saved
+            vim.api.nvim_create_autocmd("BufWritePost", {
+                group = vim.api.nvim_create_augroup("kanagawa_recompile", { clear = true }),
+                pattern = vim.fn.stdpath "config" .. "/lua/plugins/colorschemes.lua",
+                command = "KanagawaCompile",
+            })
+        end,
     },
     {
         "LazyVim/LazyVim", -- set colorscheme, override version = "*" from LazyVim's own spec
         version = false,
-        opts = { colorscheme = "solarized-osaka" },
+        opts = { colorscheme = "kanagawa" },
     },
     {
         "nvim-zh/colorful-winsep.nvim", -- active window border
